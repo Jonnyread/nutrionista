@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
+$body-bg:						#86E2D5;
+$font-family-sans-serif:		'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-height:					45px;
+$navbar-default-bg:				white;
+$navbar-default-brand-color:	#1BA39C;
+$brand-primary:					#1BA39C;
+$jumbotron-bg:					white;
+
+
+@import 'bootstrap';
+
+.center {
+     text-align: center;
+}
+
+.navbar-brand {
+     font-weight: bold;
+}
+
+.con-white{
+	background: white;
+}
