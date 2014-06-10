@@ -1,6 +1,4 @@
-<%= link_to '< Back to More Meals', meals_path %>
-
-<hr>
+<%= render "meals/back" %>
 
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
@@ -21,7 +19,7 @@
 
 				<div class="center">
 					<% if @meal.user == current_user %>
-						<%= link_to 'Edit this Meal', edit_meal_path(@meal), class: "btn btn-primary" %>
+						<%= link_to raw('<span class="glyphicon glyphicon-edit"></span> Edit this Meal'), edit_meal_path(@meal), class: "btn btn-primary" %>
 					<% end %>
 				</div>
 			</div>

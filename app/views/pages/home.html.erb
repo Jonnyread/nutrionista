@@ -5,14 +5,15 @@
 
 		<hr>
 
-		<%= link_to "Check out the Recent Meals", meals_path, class:'btn btn-info btn-lg' %>
+		<%= link_to raw("<span class='glyphicon glyphicon-cutlery'></span><span class='hidden-xs'> Check out the</span> Recent Meals"), meals_path, class:'btn btn-info btn-lg' %>
 
 		<br>
 		<br>
 
-		<%= link_to "Add New Meal", new_meal_path, class:'btn btn-primary btn-lg' %>
+		<%= link_to raw("<span class='glyphicon glyphicon-camera'></span> Add New Meal"), new_meal_path, class:'btn btn-primary btn-lg' %>
 
 	<% else %>
+		<p>Have your Trainer, Nutrionist, Family, or Friends help you meet your diet goals in the easiest way possible</p>
 	<%= link_to "Log In", new_user_session_path, class:'btn btn-primary btn-lg' %>
 	<%= link_to "Sign Up", new_user_registration_path, class:'btn btn-info btn-lg' %>
 	<% end %>

@@ -8,12 +8,21 @@
       <%= link_to image_tag(meal.image.url(:medium)), meal %>
       <div class="panel-body">
         <%= meal.description %>
-        <%= meal.user.email if meal.user %>
+        <strong><%= meal.user.email if meal.user %></strong>
 
-        <%= link_to 'Show', meal %>
         <% if meal.user == current_user %>
-          <%= link_to 'Edit', edit_meal_path(meal) %>
-          <%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="center">
+            <br>
+            <%= link_to edit_meal_path(meal) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            |
+            <%= link_to meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -24,6 +33,6 @@
 
 <div class="text-center">
   <% if user_signed_in? %>
-    <p>Eaten something recently?  Add it.    <%= link_to 'Add New Meal', new_meal_path, class: "btn btn-primary" %></p>
+    <p>Eaten something recently?  Add it.    <%= link_to raw('<span class="glyphicon glyphicon-camera"></span> Add New Meal'), new_meal_path, class: "btn btn-primary" %></p>
   <% end %>
 </div>
