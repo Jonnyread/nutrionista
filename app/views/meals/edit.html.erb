@@ -1,6 +1,18 @@
-<h1>Editing meal</h1>
+<%= link_to '< Back to More Meals', meals_path %>
+
+<hr>
+
+<div class= "center">
+	<h1>Edit your Meal</h1>
+	<h4 class="hidden-xs">Go ahead take a better picture.</h4>
+</div>
+
+<br>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @meal %> |
-<%= link_to 'Back', meals_path %>
+<hr>
+<div class="center">
+	<%= link_to "See this Meal in all it's current glory", @meal %>
+</div>
+
