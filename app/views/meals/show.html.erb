@@ -1,11 +1,31 @@
-<%= image_tag @meal.image.url(:medium) %>
+<%= link_to '< Back to More Meals', meals_path %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @meal.description %>
-</p>
+<hr>
 
-<% if @meal.user == current_user %>
-	<%= link_to 'Edit', edit_meal_path(@meal) %> |
-<% end %>
-<%= link_to 'Back', meals_path %>
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @meal.image.url(:medium) %>
+			</div>
+			
+			<div class="panel-body">
+				<p>
+				  <strong>Description:</strong>
+				  <%= @meal.description %>
+				</p>
+
+				<p>
+					<strong><%= @meal.user.email if @meal.user %></strong>
+				</p>
+
+				<div class="center">
+					<% if @meal.user == current_user %>
+						<%= link_to 'Edit this Meal', edit_meal_path(@meal), class: "btn btn-primary" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

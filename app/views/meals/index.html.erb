@@ -1,10 +1,12 @@
 <h1 class="text-center">Here's what we've been eating:</h1>
+
 <br>
 
 <div id="meals" class="transitions-enabled">
-    <% @meals.each do |meal| %>
-      <div class="box">
-        <%= image_tag meal.image.url(:medium) %>
+  <% @meals.each do |meal| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(meal.image.url(:medium)), meal %>
+      <div class="panel-body">
         <%= meal.description %>
         <%= meal.user.email if meal.user %>
 
@@ -14,13 +16,14 @@
           <%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
 
 <br>
 
 <div class="text-center">
-<% if user_signed_in? %>
-  <p>Eaten something recently?  Add it.    <%= link_to 'Add New Meal', new_meal_path, class: "btn btn-primary" %></p>
-<% end %>
+  <% if user_signed_in? %>
+    <p>Eaten something recently?  Add it.    <%= link_to 'Add New Meal', new_meal_path, class: "btn btn-primary" %></p>
+  <% end %>
 </div>
