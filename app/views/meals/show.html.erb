@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%= image_tag @meal.image.url(:medium) %>
 
 <p>
-	<%= image_tag @meal.image.url(:medium) %>
   <strong>Description:</strong>
   <%= @meal.description %>
 </p>
