@@ -7,12 +7,12 @@
     <div class="box panel panel-default">
       <%= link_to image_tag(meal.image.url(:medium)), meal %>
       <div class="panel-body">
-        <%= meal.description %>
-        <strong><%= meal.user.email if meal.user %></strong>
+        <p><%= meal.description %></p>
+        <p><strong><%= meal.user.name if meal.user %></strong></p>
 
         <% if meal.user == current_user %>
           <div class="center">
-            <br>
+            <hr>
             <%= link_to edit_meal_path(meal) do %>
               <span class="glyphicon glyphicon-edit"></span>
               Edit
@@ -33,7 +33,7 @@
 
 <div class="text-center">
   <% if user_signed_in? %>
-    <p>Eaten something recently?  Add it.    <%= link_to raw('<span class="glyphicon glyphicon-camera"></span> Add New Meal'), new_meal_path, class: "btn btn-primary" %></p>
+    <p>Eaten something recently?  Add it. <br>    <%= link_to raw('<span class="glyphicon glyphicon-camera"></span> Add New Meal'), new_meal_path, class: "btn btn-primary" %></p>
   <% end %>
 </div>
 
