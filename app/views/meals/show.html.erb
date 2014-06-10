@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<%= image_tag @meal.image.url(:medium) %>
   <strong>Description:</strong>
   <%= @meal.description %>
 </p>
 
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<% if @meal.user == current_user %>
+	<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<% end %>
 <%= link_to 'Back', meals_path %>

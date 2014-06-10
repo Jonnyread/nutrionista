@@ -1,5 +1,9 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
+  #never added the authentication for a user to be able to delete other's pins by going directly to them in the URL
+
 
   # GET /meals
   # GET /meals.json
@@ -14,7 +18,7 @@ class MealsController < ApplicationController
 
   # GET /meals/new
   def new
-    @meal = Meal.new
+    @meal = current_user.meals.build
   end
 
   # GET /meals/1/edit
@@ -24,7 +28,7 @@ class MealsController < ApplicationController
   # POST /meals
   # POST /meals.json
   def create
-    @meal = Meal.new(meal_params)
+    @meal = current_user.meals.build(meal_params)
 
     respond_to do |format|
       if @meal.save
@@ -67,8 +71,9 @@ class MealsController < ApplicationController
       @meal = Meal.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def meal_params
-      params.require(:meal).permit(:description)
+      params.require(:meal).permit(:description, :image)
     end
 end
