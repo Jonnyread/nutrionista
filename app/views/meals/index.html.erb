@@ -1,34 +1,26 @@
-<h1>Listing meals</h1>
+<h1 class="text-center">Here's what we've been eating:</h1>
+<br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th>User Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="meals" class="transitions-enabled">
     <% @meals.each do |meal| %>
-      <tr>
-        <td><%= image_tag meal.image.url(:medium) %></td>
-        <td><%= meal.description %></td>
-        <td><%= meal.user.email if meal.user %></td>
+      <div class="box">
+        <%= image_tag meal.image.url(:medium) %>
+        <%= meal.description %>
+        <%= meal.user.email if meal.user %>
 
-        <td><%= link_to 'Show', meal %></td>
+        <%= link_to 'Show', meal %>
         <% if meal.user == current_user %>
-          <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-          <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Edit', edit_meal_path(meal) %>
+          <%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
 
 <br>
 
+<div class="text-center">
 <% if user_signed_in? %>
-  <%= link_to 'New Meal', new_meal_path, class: "btn btn-primary" %>
+  <p>Eaten something recently?  Add it.    <%= link_to 'Add New Meal', new_meal_path, class: "btn btn-primary" %></p>
 <% end %>
+</div>
