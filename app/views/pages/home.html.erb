@@ -1,7 +1,8 @@
 <div class="jumbotron center">
 	<h1>Welcome to Nutrionista</h1>
 	<% if user_signed_in? %>
-		<p> Happy (healthy) Eating</p>
+		<p> Take pictures of your meals and let the people who care about you rate them and give you tips. </p>
+		<p> <small>Happy (healthy) Eating</small></p>
 
 		<hr>
 
@@ -14,7 +15,10 @@
 
 	<% else %>
 		<p>Have your Trainer, Nutrionist, Family, or Friends help you meet your diet goals in the easiest way possible</p>
-	<%= link_to "Log In", new_user_session_path, class:'btn btn-primary btn-lg' %>
-	<%= link_to "Sign Up", new_user_registration_path, class:'btn btn-info btn-lg' %>
+
+		<hr>
+
+		<%= link_to raw("<span class='glyphicon glyphicon-log-in'></span> Sign In"), new_user_session_path, class:'btn btn-primary btn-lg' %>
+		<%= link_to raw("<span class='glyphicon glyphicon-thumbs-up'></span> Get Started"), new_user_registration_path, class:'btn btn-info btn-lg' %>
 	<% end %>
 </div>
