@@ -36,3 +36,7 @@
     <p>Eaten something recently?  Add it.    <%= link_to raw('<span class="glyphicon glyphicon-camera"></span> Add New Meal'), new_meal_path, class: "btn btn-primary" %></p>
   <% end %>
 </div>
+
+<div class="center">
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>

@@ -8,7 +8,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.all.order("created_at DESC")
+    @meals = Meal.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
   end
 
   # GET /meals/1
