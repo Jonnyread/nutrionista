@@ -9,12 +9,13 @@
 			
 			<div class="panel-body">
 				<p>
-				  <strong>Description:</strong>
+				  <strong>Thoughts on this meal:</strong>
 				  <%= @meal.description %>
 				</p>
 
 				<p>
-					<strong><%= @meal.user.email if @meal.user %></strong>
+					<strong>Created by:</strong>
+					<%= @meal.user.email if @meal.user %>
 				</p>
 
 				<div class="center">

@@ -8,7 +8,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.all
+    @meals = Meal.all.order("created_at DESC")
   end
 
   # GET /meals/1
