@@ -21,6 +21,41 @@
 				<div class="center">
 					<% if @meal.user == current_user %>
 						<%= link_to raw('<span class="glyphicon glyphicon-edit"></span> Edit this Meal'), edit_meal_path(@meal), class: "btn btn-primary" %>
+					<% else %>
+					<hr>
+						<%= form_for @meal do |f| %>
+						<% if @meal.errors.any? %>
+					    <div id="error_explanation">
+					      <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+					      <ul>
+					      <% @meal.errors.full_messages.each do |message| %>
+					        <li><%= message %></li>
+					      <% end %>
+					      </ul>
+					    </div>
+					  <% end %>
+
+					  <div class="row">
+					    <div class="col-md-offset-2 col-md-8">
+
+					    	<div class="form-group">
+					        <%= f.label "How would you rate this meal?" %>
+					        <%= f.text_field :meal_rating, class: "form-control" %>
+					      </div>
+
+					      <div class="form-group">
+					        <%= f.label "What do you think about this meal?" %>
+					        <%= f.text_field :meal_notes, class: "form-control" %>
+					      </div>
+					      <div>
+					      	<%= f.submit class: "btn btn-primary" %>
+					      </div>
+
+					      <% end %>
+						  </div>
+						</div>
+
 					<% end %>
 				</div>
 			</div>
