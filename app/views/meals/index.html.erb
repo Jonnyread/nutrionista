@@ -10,9 +10,12 @@
         <p><%= meal.description %></p>
         <p><strong><%= meal.user.name if meal.user %></strong></p>
 
+        <% if meal.user == current_user %>
+        <% else %>
         <div class="center">
           <%= link_to raw('<span class="glyphicon glyphicon-star"></span> Rate This Meal <span class="glyphicon glyphicon-star"></span>'), meal, class: "btn btn-primary btn-sm" %></p>
         </div>
+        <% end %>
 
         <% if meal.user == current_user %>
           <div class="center">
